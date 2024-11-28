@@ -7,11 +7,11 @@ def logIn(username, password):
     try:
         with open("datauser (1).csv", "r") as file:
             reader = csv.reader(file)
-            next(reader)  # Lewati baris header
+            next(reader) 
             for row in reader:
-                if len(row) < 2:  # Abaikan baris yang tidak valid
+                if len(row) < 2:
                     continue
-                a, b = row[0].strip(), row[1].strip()  # Bersihkan whitespace
+                a, b = row[0].strip(), row[1].strip() 
                 if a == username and b == password:
                     sukses = True
                     break
@@ -24,13 +24,13 @@ def logIn(username, password):
 
     if sukses:
         if username == 'Admin' and password == 'AdminProPlayer':
-            os.system('cls' if os.name == 'nt' else 'clear')  # Bersihkan layar (Windows/Linux)
-            akses_admin()  # Masuk ke menu admin
+            os.system('cls' if os.name == 'nt' else 'clear')
+            akses_admin() 
         else:
-            akses_pelanggan()  # Masuk ke menu pelanggan
+            akses_pelanggan()  
     else:
         input('\nUsername atau password salah atau tidak terdaftar.\nJika belum memiliki akun, silahkan Sign Up terlebih dahulu.')
-        akses(1)  # Kembali ke menu login
+        akses(1) 
 
 
 def signUp(username, password, email):
